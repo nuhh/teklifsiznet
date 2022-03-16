@@ -1,0 +1,3 @@
+-
+    name: "LARAVEL"
+    submenu: [{ name: "KURULUM", route: laravel/kurulum }]
