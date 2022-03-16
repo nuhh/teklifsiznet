@@ -331,24 +331,26 @@ Laravel includes a variety of global "helper" PHP functions. Many of these funct
 
 The `Arr::accessible` method determines if the given value is array accessible:
 
-    use Illuminate\Support\Arr;
-    use Illuminate\Support\Collection;
+```php
+use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 
-    $isAccessible = Arr::accessible(['a' => 1, 'b' => 2]);
+$isAccessible = Arr::accessible(['a' => 1, 'b' => 2]);
 
-    // true
+// true
 
-    $isAccessible = Arr::accessible(new Collection);
+$isAccessible = Arr::accessible(new Collection);
 
-    // true
+// true
 
-    $isAccessible = Arr::accessible('abc');
+$isAccessible = Arr::accessible('abc');
 
-    // false
+// false
 
-    $isAccessible = Arr::accessible(new stdClass);
+$isAccessible = Arr::accessible(new stdClass);
 
-    // false
+// false
+```
 
 <a name="method-array-add"></a>
 #### `Arr::add()` {.collection-method}
