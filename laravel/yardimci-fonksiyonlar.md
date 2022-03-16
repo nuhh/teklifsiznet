@@ -3207,22 +3207,22 @@ The `bcrypt` function [hashes](/docs/{{version}}/hashing) the given value using 
 <a name="method-blank"></a>
 #### `blank()`
 
-The `blank` function determines whether the given value is "blank":
+Verilen değerin "boş" olduğunu belirler.
 
-    blank('');
-    blank('   ');
-    blank(null);
-    blank(collect());
+```php
+blank('');
+blank('   ');
+blank(null);
+blank(collect());
+// doğru
 
-    // true
+blank(0);
+blank(true);
+blank(false);
+// yanlış
+```
 
-    blank(0);
-    blank(true);
-    blank(false);
-
-    // false
-
-For the inverse of `blank`, see the [`filled`](#method-filled) method.
+`blank` fonksiyonunun tersi için [`filled`](#method-filled) fonksiyonunu inceleyebilirsiniz.
 
 <a name="method-broadcast"></a>
 #### `broadcast()`
@@ -3395,7 +3395,7 @@ filled(collect());
 // yanlış
 ```
 
-For the inverse of `filled`, see the [`blank`](#method-blank) method.
+`filled` fonksiyonunun tersi için [`blank`](#method-blank) fonksiyonunu inceleyebilirsiniz.
 
 <a name="method-info"></a>
 #### `info()`
