@@ -3378,23 +3378,21 @@ event(new UserRegistered($user));
 ```
 
 <a name="method-filled"></a>
-#### `filled()` {.collection-method}
+#### `filled()`
 
-The `filled` function determines whether the given value is not "blank":
+Verilen değerin "boş" olmadığını belirler.
 
 ```php
 filled(0);
 filled(true);
 filled(false);
-
-// true
+// doğru
 
 filled('');
 filled('   ');
 filled(null);
 filled(collect());
-
-// false
+// yanlış
 ```
 
 For the inverse of `filled`, see the [`blank`](#method-blank) method.
