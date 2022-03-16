@@ -3280,37 +3280,47 @@ You may set configuration variables at runtime by passing an array of key / valu
 
 The `cookie` function creates a new [cookie](/docs/{{version}}/requests#cookies) instance:
 
-    $cookie = cookie('name', 'value', $minutes);
+```php
+$cookie = cookie('name', 'value', $minutes);
+```
 
 <a name="method-csrf-field"></a>
 #### `csrf_field()` {.collection-method}
 
 The `csrf_field` function generates an HTML `hidden` input field containing the value of the CSRF token. For example, using [Blade syntax](/docs/{{version}}/blade):
 
-    {{ csrf_field() }}
+```php
+{{ csrf_field() }}
+```
 
 <a name="method-csrf-token"></a>
 #### `csrf_token()` {.collection-method}
 
 The `csrf_token` function retrieves the value of the current CSRF token:
 
-    $token = csrf_token();
+```php
+$token = csrf_token();
+```
 
 <a name="method-decrypt"></a>
 #### `decrypt()` {.collection-method}
 
 The `decrypt` function [decrypts](/docs/{{version}}/encryption) the given value. You may use this function as an alternative to the `Crypt` facade:
 
-    $password = decrypt($value);
+```php
+$password = decrypt($value);
+```
 
 <a name="method-dd"></a>
 #### `dd()` {.collection-method}
 
 The `dd` function dumps the given variables and ends execution of the script:
 
-    dd($value);
+```php
+dd($value);
 
-    dd($value1, $value2, $value3, ...);
+dd($value1, $value2, $value3, ...);
+```
 
 If you do not want to halt the execution of your script, use the [`dump`](#method-dump) function instead.
 
@@ -3319,16 +3329,20 @@ If you do not want to halt the execution of your script, use the [`dump`](#metho
 
 The `dispatch` function pushes the given [job](/docs/{{version}}/queues#creating-jobs) onto the Laravel [job queue](/docs/{{version}}/queues):
 
-    dispatch(new App\Jobs\SendEmails);
+```php
+dispatch(new App\Jobs\SendEmails);
+```
 
 <a name="method-dump"></a>
 #### `dump()` {.collection-method}
 
 The `dump` function dumps the given variables:
 
-    dump($value);
+```php
+dump($value);
 
-    dump($value1, $value2, $value3, ...);
+dump($value1, $value2, $value3, ...);
+```
 
 If you want to stop executing the script after dumping the variables, use the [`dd`](#method-dd) function instead.
 
@@ -3337,16 +3351,20 @@ If you want to stop executing the script after dumping the variables, use the [`
 
 The `encrypt` function [encrypts](/docs/{{version}}/encryption) the given value. You may use this function as an alternative to the `Crypt` facade:
 
-    $secret = encrypt('my-secret-value');
+```php
+$secret = encrypt('my-secret-value');
+```
 
 <a name="method-env"></a>
 #### `env()` {.collection-method}
 
 The `env` function retrieves the value of an [environment variable](/docs/{{version}}/configuration#environment-configuration) or returns a default value:
 
-    $env = env('APP_ENV');
+```php
+$env = env('APP_ENV');
 
-    $env = env('APP_ENV', 'production');
+$env = env('APP_ENV', 'production');
+```
 
 > {note} If you execute the `config:cache` command during your deployment process, you should be sure that you are only calling the `env` function from within your configuration files. Once the configuration has been cached, the `.env` file will not be loaded and all calls to the `env` function will return `null`.
 
@@ -3355,25 +3373,29 @@ The `env` function retrieves the value of an [environment variable](/docs/{{vers
 
 The `event` function dispatches the given [event](/docs/{{version}}/events) to its listeners:
 
-    event(new UserRegistered($user));
+```php
+event(new UserRegistered($user));
+```
 
 <a name="method-filled"></a>
 #### `filled()` {.collection-method}
 
 The `filled` function determines whether the given value is not "blank":
 
-    filled(0);
-    filled(true);
-    filled(false);
+```php
+filled(0);
+filled(true);
+filled(false);
 
-    // true
+// true
 
-    filled('');
-    filled('   ');
-    filled(null);
-    filled(collect());
+filled('');
+filled('   ');
+filled(null);
+filled(collect());
 
-    // false
+// false
+```
 
 For the inverse of `filled`, see the [`blank`](#method-blank) method.
 
@@ -3382,319 +3404,397 @@ For the inverse of `filled`, see the [`blank`](#method-blank) method.
 
 The `info` function will write information to your application's [log](/docs/{{version}}/logging):
 
-    info('Some helpful information!');
+```php
+info('Some helpful information!');
+```
 
 An array of contextual data may also be passed to the function:
 
-    info('User login attempt failed.', ['id' => $user->id]);
+```php
+info('User login attempt failed.', ['id' => $user->id]);
+```
 
 <a name="method-logger"></a>
 #### `logger()` {.collection-method}
 
 The `logger` function can be used to write a `debug` level message to the [log](/docs/{{version}}/logging):
 
-    logger('Debug message');
+```php
+logger('Debug message');
+```
 
 An array of contextual data may also be passed to the function:
 
-    logger('User has logged in.', ['id' => $user->id]);
+```php
+logger('User has logged in.', ['id' => $user->id]);
+```
 
 A [logger](/docs/{{version}}/errors#logging) instance will be returned if no value is passed to the function:
 
-    logger()->error('You are not allowed here.');
+```php
+logger()->error('You are not allowed here.');
+```
 
 <a name="method-method-field"></a>
 #### `method_field()` {.collection-method}
 
 The `method_field` function generates an HTML `hidden` input field containing the spoofed value of the form's HTTP verb. For example, using [Blade syntax](/docs/{{version}}/blade):
 
-    <form method="POST">
-        {{ method_field('DELETE') }}
-    </form>
+```php
+<form method="POST">
+    {{ method_field('DELETE') }}
+</form>
+```
 
 <a name="method-now"></a>
 #### `now()` {.collection-method}
 
 The `now` function creates a new `Illuminate\Support\Carbon` instance for the current time:
 
-    $now = now();
+```php
+$now = now();
+```
 
 <a name="method-old"></a>
 #### `old()` {.collection-method}
 
 The `old` function [retrieves](/docs/{{version}}/requests#retrieving-input) an [old input](/docs/{{version}}/requests#old-input) value flashed into the session:
 
-    $value = old('value');
+```php
+$value = old('value');
 
-    $value = old('value', 'default');
+$value = old('value', 'default');
+```
 
 <a name="method-optional"></a>
 #### `optional()` {.collection-method}
 
 The `optional` function accepts any argument and allows you to access properties or call methods on that object. If the given object is `null`, properties and methods will return `null` instead of causing an error:
 
-    return optional($user->address)->street;
+```php
+return optional($user->address)->street;
 
-    {!! old('name', optional($user)->name) !!}
+{!! old('name', optional($user)->name) !!}
+```
 
 The `optional` function also accepts a closure as its second argument. The closure will be invoked if the value provided as the first argument is not null:
 
-    return optional(User::find($id), function ($user) {
-        return $user->name;
-    });
+```php
+return optional(User::find($id), function ($user) {
+    return $user->name;
+});
+```
 
 <a name="method-policy"></a>
 #### `policy()` {.collection-method}
 
 The `policy` method retrieves a [policy](/docs/{{version}}/authorization#creating-policies) instance for a given class:
 
-    $policy = policy(App\Models\User::class);
+```php
+$policy = policy(App\Models\User::class);
+```
 
 <a name="method-redirect"></a>
 #### `redirect()` {.collection-method}
 
 The `redirect` function returns a [redirect HTTP response](/docs/{{version}}/responses#redirects), or returns the redirector instance if called with no arguments:
 
-    return redirect($to = null, $status = 302, $headers = [], $https = null);
+```php
+return redirect($to = null, $status = 302, $headers = [], $https = null);
 
-    return redirect('/home');
+return redirect('/home');
 
-    return redirect()->route('route.name');
+return redirect()->route('route.name');
+```
 
 <a name="method-report"></a>
 #### `report()` {.collection-method}
 
 The `report` function will report an exception using your [exception handler](/docs/{{version}}/errors#the-exception-handler):
 
-    report($e);
+```php
+report($e);
+```
 
 The `report` function also accepts a string as an argument. When a string is given to the function, the function will create an exception with the given string as its message:
 
-    report('Something went wrong.');
+```php
+report('Something went wrong.');
+```
 
 <a name="method-request"></a>
 #### `request()` {.collection-method}
 
 The `request` function returns the current [request](/docs/{{version}}/requests) instance or obtains an input field's value from the current request:
 
-    $request = request();
+```php
+$request = request();
 
-    $value = request('key', $default);
+$value = request('key', $default);
+```
 
 <a name="method-rescue"></a>
 #### `rescue()` {.collection-method}
 
 The `rescue` function executes the given closure and catches any exceptions that occur during its execution. All exceptions that are caught will be sent to your [exception handler](/docs/{{version}}/errors#the-exception-handler); however, the request will continue processing:
 
-    return rescue(function () {
-        return $this->method();
-    });
+```php
+return rescue(function () {
+    return $this->method();
+});
+```
 
 You may also pass a second argument to the `rescue` function. This argument will be the "default" value that should be returned if an exception occurs while executing the closure:
 
-    return rescue(function () {
-        return $this->method();
-    }, false);
+```php
+return rescue(function () {
+    return $this->method();
+}, false);
 
-    return rescue(function () {
-        return $this->method();
-    }, function () {
-        return $this->failure();
-    });
+return rescue(function () {
+    return $this->method();
+}, function () {
+    return $this->failure();
+});
+```
 
 <a name="method-resolve"></a>
 #### `resolve()` {.collection-method}
 
 The `resolve` function resolves a given class or interface name to an instance using the [service container](/docs/{{version}}/container):
 
-    $api = resolve('HelpSpot\API');
+```php
+$api = resolve('HelpSpot\API');
+```
 
 <a name="method-response"></a>
 #### `response()` {.collection-method}
 
 The `response` function creates a [response](/docs/{{version}}/responses) instance or obtains an instance of the response factory:
 
-    return response('Hello World', 200, $headers);
+```php
+return response('Hello World', 200, $headers);
 
-    return response()->json(['foo' => 'bar'], 200, $headers);
+return response()->json(['foo' => 'bar'], 200, $headers);
+```
 
 <a name="method-retry"></a>
 #### `retry()` {.collection-method}
 
 The `retry` function attempts to execute the given callback until the given maximum attempt threshold is met. If the callback does not throw an exception, its return value will be returned. If the callback throws an exception, it will automatically be retried. If the maximum attempt count is exceeded, the exception will be thrown:
 
-    return retry(5, function () {
-        // Attempt 5 times while resting 100ms between attempts...
-    }, 100);
+```php
+return retry(5, function () {
+    // Attempt 5 times while resting 100ms between attempts...
+}, 100);
+```
 
 If you would like to manually calculate the number of milliseconds to sleep between attempts, you may pass a closure as the third argument to the `retry` function:
 
-    return retry(5, function () {
-        // ...
-    }, function ($attempt) {
-        return $attempt * 100;
-    });
+```php
+return retry(5, function () {
+    // ...
+}, function ($attempt) {
+    return $attempt * 100;
+});
+```
 
 For convenience, you may provide an array as the first argument to the `retry` function. This array will be used to determine how many milliseconds to sleep between subsequent attempts:
 
-    return retry([100, 200] function () {
-        // Sleep for 100ms on first retry, 200ms on second retry...
-    });
+```php
+return retry([100, 200] function () {
+    // Sleep for 100ms on first retry, 200ms on second retry...
+});
+```
 
 To only retry under specific conditions, you may pass a closure as the fourth argument to the `retry` function:
 
-    return retry(5, function () {
-        // ...
-    }, 100, function ($exception) {
-        return $exception instanceof RetryException;
-    });
+```php
+return retry(5, function () {
+    // ...
+}, 100, function ($exception) {
+    return $exception instanceof RetryException;
+});
+```
 
 <a name="method-session"></a>
 #### `session()` {.collection-method}
 
 The `session` function may be used to get or set [session](/docs/{{version}}/session) values:
 
-    $value = session('key');
+```php
+$value = session('key');
+```
 
 You may set values by passing an array of key / value pairs to the function:
 
-    session(['chairs' => 7, 'instruments' => 3]);
+```php
+session(['chairs' => 7, 'instruments' => 3]);
+```
 
 The session store will be returned if no value is passed to the function:
 
-    $value = session()->get('key');
+```php
+$value = session()->get('key');
 
-    session()->put('key', $value);
+session()->put('key', $value);
+```
 
 <a name="method-tap"></a>
 #### `tap()` {.collection-method}
 
 The `tap` function accepts two arguments: an arbitrary `$value` and a closure. The `$value` will be passed to the closure and then be returned by the `tap` function. The return value of the closure is irrelevant:
 
-    $user = tap(User::first(), function ($user) {
-        $user->name = 'taylor';
+```php
+$user = tap(User::first(), function ($user) {
+    $user->name = 'taylor';
 
-        $user->save();
-    });
+    $user->save();
+});
+```
 
 If no closure is passed to the `tap` function, you may call any method on the given `$value`. The return value of the method you call will always be `$value`, regardless of what the method actually returns in its definition. For example, the Eloquent `update` method typically returns an integer. However, we can force the method to return the model itself by chaining the `update` method call through the `tap` function:
 
-    $user = tap($user)->update([
-        'name' => $name,
-        'email' => $email,
-    ]);
+```php
+$user = tap($user)->update([
+    'name' => $name,
+    'email' => $email,
+]);
+```
 
 To add a `tap` method to a class, you may add the `Illuminate\Support\Traits\Tappable` trait to the class. The `tap` method of this trait accepts a Closure as its only argument. The object instance itself will be passed to the Closure and then be returned by the `tap` method:
 
-    return $user->tap(function ($user) {
-        //
-    });
+```php
+return $user->tap(function ($user) {
+    //
+});
+```
 
 <a name="method-throw-if"></a>
 #### `throw_if()` {.collection-method}
 
 The `throw_if` function throws the given exception if a given boolean expression evaluates to `true`:
 
-    throw_if(! Auth::user()->isAdmin(), AuthorizationException::class);
+```php
+throw_if(! Auth::user()->isAdmin(), AuthorizationException::class);
 
-    throw_if(
-        ! Auth::user()->isAdmin(),
-        AuthorizationException::class,
-        'You are not allowed to access this page.'
-    );
+throw_if(
+    ! Auth::user()->isAdmin(),
+    AuthorizationException::class,
+    'You are not allowed to access this page.'
+);
+```
 
 <a name="method-throw-unless"></a>
 #### `throw_unless()` {.collection-method}
 
 The `throw_unless` function throws the given exception if a given boolean expression evaluates to `false`:
 
-    throw_unless(Auth::user()->isAdmin(), AuthorizationException::class);
+```php
+throw_unless(Auth::user()->isAdmin(), AuthorizationException::class);
 
-    throw_unless(
-        Auth::user()->isAdmin(),
-        AuthorizationException::class,
-        'You are not allowed to access this page.'
-    );
+throw_unless(
+    Auth::user()->isAdmin(),
+    AuthorizationException::class,
+    'You are not allowed to access this page.'
+);
+```
 
 <a name="method-today"></a>
 #### `today()` {.collection-method}
 
 The `today` function creates a new `Illuminate\Support\Carbon` instance for the current date:
 
-    $today = today();
+```php
+$today = today();
+```
 
 <a name="method-trait-uses-recursive"></a>
 #### `trait_uses_recursive()` {.collection-method}
 
 The `trait_uses_recursive` function returns all traits used by a trait:
 
-    $traits = trait_uses_recursive(\Illuminate\Notifications\Notifiable::class);
+```php
+$traits = trait_uses_recursive(\Illuminate\Notifications\Notifiable::class);
+```
 
 <a name="method-transform"></a>
 #### `transform()` {.collection-method}
 
 The `transform` function executes a closure on a given value if the value is not [blank](#method-blank) and then returns the return value of the closure:
 
-    $callback = function ($value) {
-        return $value * 2;
-    };
+```php
+$callback = function ($value) {
+    return $value * 2;
+};
 
-    $result = transform(5, $callback);
+$result = transform(5, $callback);
 
-    // 10
+// 10
+```
 
 A default value or closure may be passed as the third argument to the function. This value will be returned if the given value is blank:
 
-    $result = transform(null, $callback, 'The value is blank');
+```php
+$result = transform(null, $callback, 'The value is blank');
 
-    // The value is blank
+// The value is blank
 
+```
 <a name="method-validator"></a>
 #### `validator()` {.collection-method}
 
 The `validator` function creates a new [validator](/docs/{{version}}/validation) instance with the given arguments. You may use it as an alternative to the `Validator` facade:
 
-    $validator = validator($data, $rules, $messages);
+```php
+$validator = validator($data, $rules, $messages);
+```
 
 <a name="method-value"></a>
 #### `value()` {.collection-method}
 
 The `value` function returns the value it is given. However, if you pass a closure to the function, the closure will be executed and its returned value will be returned:
 
-    $result = value(true);
+```php
+$result = value(true);
 
-    // true
+// true
 
-    $result = value(function () {
-        return false;
-    });
+$result = value(function () {
+    return false;
+});
 
-    // false
+// false
+```
 
 <a name="method-view"></a>
 #### `view()` {.collection-method}
 
 The `view` function retrieves a [view](/docs/{{version}}/views) instance:
 
-    return view('auth.login');
+```php
+return view('auth.login');
+```
 
 <a name="method-with"></a>
 #### `with()` {.collection-method}
 
 The `with` function returns the value it is given. If a closure is passed as the second argument to the function, the closure will be executed and its returned value will be returned:
 
-    $callback = function ($value) {
-        return is_numeric($value) ? $value * 2 : 0;
-    };
+```php
+$callback = function ($value) {
+    return is_numeric($value) ? $value * 2 : 0;
+};
 
-    $result = with(5, $callback);
+$result = with(5, $callback);
 
-    // 10
+// 10
 
-    $result = with(null, $callback);
+$result = with(null, $callback);
 
-    // 0
+// 0
 
-    $result = with(5, null);
+$result = with(5, null);
 
-    // 5
+// 5
+```
