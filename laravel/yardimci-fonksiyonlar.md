@@ -1,15 +1,15 @@
 # Yardımcı Fonksiyonlar
 
-- [Introduction](#introduction)
-- [Available Methods](#available-methods)
+- [Giriş](#introduction)
+- [Fonksiyonlar](#available-methods)
 
 <a name="introduction"></a>
-## Introduction
+## Giriş
 
-Laravel includes a variety of global "helper" PHP functions. Many of these functions are used by the framework itself; however, you are free to use them in your own applications if you find them convenient.
+Laravel'in kendi içerisinde kullandığı yardımcı fonksiyonlar bulunmakta, bu fonksiyonları kendi projelerinizde kullanabilirsiniz.
 
 <a name="available-methods"></a>
-## Available Methods
+## Fonksiyonlar
 
 <style>
     .collection-method-list > p {
@@ -327,29 +327,25 @@ Laravel includes a variety of global "helper" PHP functions. Many of these funct
 ## Arrays & Objects
 
 <a name="method-array-accessible"></a>
-#### `Arr::accessible()` {.collection-method .first-collection-method}
+#### `Arr::accessible()`
 
-The `Arr::accessible` method determines if the given value is array accessible:
+Değerin dizi olarak erişilebilirliğini belirler.
 
 ```php
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 
 $isAccessible = Arr::accessible(['a' => 1, 'b' => 2]);
-
-// true
+// doğru
 
 $isAccessible = Arr::accessible(new Collection);
-
-// true
+// doğru
 
 $isAccessible = Arr::accessible('abc');
-
-// false
+// yanlış
 
 $isAccessible = Arr::accessible(new stdClass);
-
-// false
+// yanlış
 ```
 
 <a name="method-array-add"></a>
