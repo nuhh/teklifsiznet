@@ -351,62 +351,62 @@ $isAccessible = Arr::accessible(new stdClass);
 <a name="method-array-add"></a>
 #### `Arr::add()`
 
-The `Arr::add` method adds a given key / value pair to an array if the given key doesn't already exist in the array or is set to `null`:
+`Arr::add` fonksiyonu diziyle anahtar ve değer çiftini ekler, eğer anahtar dizide tanımlıysa değerini değiştirir.
 
-    use Illuminate\Support\Arr;
+```php
+use Illuminate\Support\Arr;
 
-    $array = Arr::add(['name' => 'Desk'], 'price', 100);
+$array = Arr::add(['name' => 'Desk'], 'price', 100);
+// ['name' => 'Desk', 'price' => 100]
 
-    // ['name' => 'Desk', 'price' => 100]
-
-    $array = Arr::add(['name' => 'Desk', 'price' => null], 'price', 100);
-
-    // ['name' => 'Desk', 'price' => 100]
-
+$array = Arr::add(['name' => 'Desk', 'price' => null], 'price', 100);
+// ['name' => 'Desk', 'price' => 100]
+```
 
 <a name="method-array-collapse"></a>
 #### `Arr::collapse()`
 
-The `Arr::collapse` method collapses an array of arrays into a single array:
+`Arr::collapse` fonksiyonu diziyi sıkıştırıp tek bir dizi haline getirir.
 
-    use Illuminate\Support\Arr;
+```php
+use Illuminate\Support\Arr;
 
-    $array = Arr::collapse([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);
-
-    // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+$array = Arr::collapse([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);
+// [1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
 
 <a name="method-array-crossjoin"></a>
 #### `Arr::crossJoin()`
 
-The `Arr::crossJoin` method cross joins the given arrays, returning a Cartesian product with all possible permutations:
+`Arr::corssJoin` fonksiyonu dizideki değerleri çapraz olarak eşler.
 
-    use Illuminate\Support\Arr;
+```php
+use Illuminate\Support\Arr;
 
-    $matrix = Arr::crossJoin([1, 2], ['a', 'b']);
+$matrix = Arr::crossJoin([1, 2], ['a', 'b']);
+/*
+    [
+        [1, 'a'],
+        [1, 'b'],
+        [2, 'a'],
+        [2, 'b'],
+    ]
+*/
 
-    /*
-        [
-            [1, 'a'],
-            [1, 'b'],
-            [2, 'a'],
-            [2, 'b'],
-        ]
-    */
-
-    $matrix = Arr::crossJoin([1, 2], ['a', 'b'], ['I', 'II']);
-
-    /*
-        [
-            [1, 'a', 'I'],
-            [1, 'a', 'II'],
-            [1, 'b', 'I'],
-            [1, 'b', 'II'],
-            [2, 'a', 'I'],
-            [2, 'a', 'II'],
-            [2, 'b', 'I'],
-            [2, 'b', 'II'],
-        ]
-    */
+$matrix = Arr::crossJoin([1, 2], ['a', 'b'], ['I', 'II']);
+/*
+    [
+        [1, 'a', 'I'],
+        [1, 'a', 'II'],
+        [1, 'b', 'I'],
+        [1, 'b', 'II'],
+        [2, 'a', 'I'],
+        [2, 'a', 'II'],
+        [2, 'b', 'I'],
+        [2, 'b', 'II'],
+    ]
+*/
+```
 
 <a name="method-array-divide"></a>
 #### `Arr::divide()`
@@ -424,28 +424,31 @@ The `Arr::divide` method returns two arrays: one containing the keys and the oth
 <a name="method-array-dot"></a>
 #### `Arr::dot()`
 
-The `Arr::dot` method flattens a multi-dimensional array into a single level array that uses "dot" notation to indicate depth:
+`Arr::dot` fonksiyonu diziyi tek seviye diziye dönüştürür. Değerlere "nokta" kullanarak erişim sağlar.
 
-    use Illuminate\Support\Arr;
+```php
+use Illuminate\Support\Arr;
 
-    $array = ['products' => ['desk' => ['price' => 100]]];
+$array = ['products' => ['desk' => ['price' => 100]]];
 
-    $flattened = Arr::dot($array);
-
-    // ['products.desk.price' => 100]
+$flattened = Arr::dot($array);
+// ['products.desk.price' => 100]
+```
 
 <a name="method-array-except"></a>
 #### `Arr::except()`
 
-The `Arr::except` method removes the given key / value pairs from an array:
+`Arr::except` fonksiyonu anahtarı diziden kaldırır.
 
-    use Illuminate\Support\Arr;
+```php
+use Illuminate\Support\Arr;
 
-    $array = ['name' => 'Desk', 'price' => 100];
+$array = ['name' => 'Desk', 'price' => 100];
 
-    $filtered = Arr::except($array, ['price']);
+$filtered = Arr::except($array, ['price']);
 
-    // ['name' => 'Desk']
+// ['name' => 'Desk']
+```
 
 <a name="method-array-exists"></a>
 #### `Arr::exists()`
