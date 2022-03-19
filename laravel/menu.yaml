@@ -1,3 +1,6 @@
 -
     name: "LARAVEL"
     submenu: [{ name: "KURULUM", route: laravel/kurulum }, {name: "YARDIMCI FONKSİYONLAR", route: laravel/yardimci-fonksiyonlar }]
+-
+    name: "Kurulum"
+    submenu: [{ name: "Composer ile", route: laravel/composer-ile-kurulum }]
