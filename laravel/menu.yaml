@@ -4,3 +4,6 @@
 -
     name: "Kurulum"
     submenu: [{ name: "Composer ile", route: laravel/composer-ile-kurulum }]
+-
+    name: "Yardımcı Fonksiyonlar"
+    submenu: [{ name: "Array & Object", route: laravel/yardimci-fonksiyonlar-array-object }, { name: "Dizin", route: laravel/yardimci-fonksiyonlar-dizin }, { name: "String", route: laravel/yardimci-fonksiyonlar-string }, { name: "Text", route: laravel/yardimci-fonksiyonlar-text }, { name: "URL", route: laravel/yardimci-fonksiyonlar-url }, { name: "Çeşitli", route: laravel/yardimci-fonksiyonlar-cesitli }, ]
