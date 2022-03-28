@@ -45,78 +45,96 @@ Laravel'in kendi içerisinde kullandığı yardımcı fonksiyonlar bulunmakta, b
 <a name="method-app-path"></a>
 #### `app_path()`
 
-The `app_path` function returns the fully qualified path to your application's `app` directory. You may also use the `app_path` function to generate a fully qualified path to a file relative to the application directory:
+`app_path` fonksiyonu uygulamanızın `app` klasörünü dönderir, ayırca `app_path` fonksiyonu ile `app` klasöründen tam yolu oluşturabilirsiniz.
 
-    $path = app_path();
+```php
+$path = app_path();
 
-    $path = app_path('Http/Controllers/Controller.php');
+$path = app_path('Http/Controllers/Controller.php');
+```
 
 <a name="method-base-path"></a>
 #### `base_path()`
 
-The `base_path` function returns the fully qualified path to your application's root directory. You may also use the `base_path` function to generate a fully qualified path to a given file relative to the project root directory:
+`base_path` fonksiyonu uygulamanızın ana dizinini dönderir, ayırca `base_path` fonksiyonu ile ana dizininizden tam yolu oluşturabilirsiniz.
 
-    $path = base_path();
+```php
+$path = base_path();
 
-    $path = base_path('vendor/bin');
+$path = base_path('vendor/bin');
+```
 
 <a name="method-config-path"></a>
 #### `config_path()`
 
-The `config_path` function returns the fully qualified path to your application's `config` directory. You may also use the `config_path` function to generate a fully qualified path to a given file within the application's configuration directory:
+`config_path` fonksiyonu uygulamanızın `config` klasörünü dönderir, ayırca `config_path` fonksiyonu ile `config` klasöründen tam yolu oluşturabilirsiniz.
 
-    $path = config_path();
+```php
+$path = config_path();
 
-    $path = config_path('app.php');
+$path = config_path('app.php');
+```
 
 <a name="method-database-path"></a>
 #### `database_path()`
 
-The `database_path` function returns the fully qualified path to your application's `database` directory. You may also use the `database_path` function to generate a fully qualified path to a given file within the database directory:
+`database_path` fonksiyonu uygulamanızın `database` klasörünü dönderir, ayırca `database_path` fonksiyonu ile `database` klasöründen tam yolu oluşturabilirsiniz.
 
-    $path = database_path();
+```php
+$path = database_path();
 
-    $path = database_path('factories/UserFactory.php');
+$path = database_path('factories/UserFactory.php');
+```
 
 <a name="method-lang-path"></a>
 #### `lang_path()`
 
-The `lang_path` function returns the fully qualified path to your application's `lang` directory. You may also use the `lang_path` function to generate a fully qualified path to a given file within the directory:
+`lang_path` fonksiyonu uygulamanızın `lang` klasörünü dönderir, ayırca `lang_path` fonksiyonu ile `lang` klasöründen tam yolu oluşturabilirsiniz.
 
-    $path = lang_path();
+```php
+$path = lang_path();
 
-    $path = lang_path('en/messages.php');
+$path = lang_path('en/messages.php');
+```
 
 <a name="method-mix"></a>
 #### `mix()`
 
 The `mix` function returns the path to a [versioned Mix file](/docs/{{version}}/mix):
 
-    $path = mix('css/app.css');
+```php
+$path = mix('css/app.css');
+```
 
 <a name="method-public-path"></a>
 #### `public_path()`
 
-The `public_path` function returns the fully qualified path to your application's `public` directory. You may also use the `public_path` function to generate a fully qualified path to a given file within the public directory:
+`public_path` fonksiyonu uygulamanızın `public` klasörünü dönderir, ayırca `public_path` fonksiyonu ile `public` klasöründen tam yolu oluşturabilirsiniz.
 
-    $path = public_path();
+```php
+$path = public_path();
 
-    $path = public_path('css/app.css');
+$path = public_path('css/app.css');
+```
 
 <a name="method-resource-path"></a>
 #### `resource_path()`
 
-The `resource_path` function returns the fully qualified path to your application's `resources` directory. You may also use the `resource_path` function to generate a fully qualified path to a given file within the resources directory:
+`resource_path` fonksiyonu uygulamanızın `resources` klasörünü dönderir, ayırca `resource_path` fonksiyonu ile `resources` klasöründen tam yolu oluşturabilirsiniz.
 
-    $path = resource_path();
+```php
+$path = resource_path();
 
-    $path = resource_path('sass/app.scss');
+$path = resource_path('sass/app.scss');
+```
 
 <a name="method-storage-path"></a>
 #### `storage_path()`
 
-The `storage_path` function returns the fully qualified path to your application's `storage` directory. You may also use the `storage_path` function to generate a fully qualified path to a given file within the storage directory:
+`storage_path` fonksiyonu uygulamanızın `storage` klasörünü dönderir, ayırca `storage_path` fonksiyonu ile `storage` klasöründen tam yolu oluşturabilirsiniz.
 
-    $path = storage_path();
+```php
+$path = storage_path();
 
-    $path = storage_path('app/file.txt');
+$path = storage_path('app/file.txt');
+```
